@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>想い - Power Of TERA</title>
+    <meta name="description" content="Power Of TERAが生まれた背景と、私たちの想い。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .story-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--color-charcoal);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .story-content p {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .highlight-box {
+            background: rgba(182, 154, 74, 0.05);
+            padding: var(--spacing-xl);
+            border-radius: 12px;
+            border-left: 4px solid var(--color-gold);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .highlight-box p {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--color-ink);
+            margin: 0;
+        }
+
+        .roadmap-timeline {
+            max-width: 1000px;
+            margin: var(--spacing-xl) auto 0;
+            position: relative;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--color-gold);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding: var(--spacing-lg);
+            background: white;
+            border-radius: 8px;
+            margin: 0 var(--spacing-lg);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+
+        .timeline-date {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            color: var(--color-gold);
+            margin-bottom: var(--spacing-sm);
+            font-weight: 500;
+        }
+
+        .timeline-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-ink);
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-medium-gray);
+        }
+
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            background: var(--color-gold);
+            border: 4px solid white;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px var(--color-light-gray);
+            z-index: 1;
+        }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            .story-content {
+                font-size: 1rem;
+                line-height: 1.9;
+            }
+
+            .highlight-box {
+                padding: var(--spacing-lg);
+            }
+
+            .highlight-box p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                margin-bottom: var(--spacing-lg);
+            }
+
+            .timeline-content {
+                margin: 0 0 0 var(--spacing-lg);
+                padding: var(--spacing-md);
+            }
+
+            .roadmap-timeline::before {
+                left: 10px;
+                transform: none;
+            }
+
+            .timeline-marker {
+                left: 10px;
+                transform: translateX(-50%);
+            }
+
+            .timeline-date {
+                font-size: 1.1rem;
+            }
+
+            .timeline-title {
+                font-size: 1rem;
+            }
+
+            .timeline-description {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .story-content {
+                font-size: 0.95rem;
+            }
+
+            .highlight-box {
+                padding: var(--spacing-md);
+            }
+
+            .highlight-box p {
+                font-size: 1rem;
+            }
+
+            .timeline-content {
+                padding: var(--spacing-sm) var(--spacing-md);
+            }
+
+            .timeline-date {
+                font-size: 1rem;
+            }
+
+            .timeline-title {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">Power Of TERA</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">ホーム</a>
+                <a href="about.html">想い</a>
+                <a href="terasauna.html">寺サウナ</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero visible">
+        <div class="zen-circle"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">私たちの想い</h1>
+            <p class="hero-subtitle">
+                なぜ、寺院なのか。<br>
+                なぜ、今なのか。
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="story-section">
+                <h2 class="section-title">Power Of TERAが生まれた理由</h2>
+                
+                <div class="story-content">
+                    <p>
+                        日本全国に約77,000ある寺院。かつては地域の中心として、人々の精神的支柱でした。しかし今、その多くが檀家制度の崩壊、後継者不足、デジタル対応の遅れにより、静かに衰退しています。
+                    </p>
+                    
+                    <p>
+                        一方で、現代社会を生きる私たちは、忙しさに追われ、スマートフォンに縛られ、心の余白を失っています。「ゆっくり休む」「何もしない」「静寂に身を置く」——そんな当たり前のことが、贅沢になってしまいました。
+                    </p>
+                    
+                    <p>
+                        この二つの課題は、実は表裏一体です。寺院には「静寂」「歴史」「精神性」という、現代人が最も必要としている価値があります。しかし、その価値が現代のニーズに合った形で提供されていないのです。
+                    </p>
+                </div>
+
+                <div class="highlight-box">
+                    <p>
+                        寺院の持つ資産を、現代のウェルネス体験として再定義する。<br>
+                        寺院に新しい収益源を生み出し、現代人に心の余白を届ける。<br>
+                        <br>
+                        それが、Power Of TERAの使命です。
+                    </p>
+                </div>
+
+                <div class="story-content" style="margin-top: var(--spacing-xl);">
+                    <p>
+                        私たちは、寺院の住職の息子、サウナを愛する者、寺の美しさに魅了された者、医学とITで社会を変えたい者——異なる背景を持つ4人のチームです。
+                    </p>
+                    
+                    <p>
+                        それぞれの想いが重なった時、「寺の力で、人と地域を繋ぐ」というビジョンが生まれました。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">これから歩む道</h2>
+            <p class="text-center mb-xl" style="font-size: 1.1rem; color: var(--color-charcoal); max-width: 800px; margin-left: auto; margin-right: auto;">
+                2025年10月のMVP検証から始まり、2027年のフランチャイズ展開まで。<br>
+                一歩ずつ、着実に前進していきます。
+            </p>
+            <div class="roadmap-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年10月</div>
+                        <div class="timeline-title">MVP検証</div>
+                        <div class="timeline-description">盛松寺でテントサウナ体験会を開催。現場オペレーションと需要を検証します。</div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025年12月</div>
+                        <div class="timeline-title">クラウドファンディング</div>
+                        <div class="timeline-description">資金調達と認知拡大。初期支援者コミュニティを構築します。</div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年3月</div>
+                        <div class="timeline-title">直営1号店オープン</div>
+                        <div class="timeline-description">本格的な寺サウナ施設を開業。サービスモデルを確立します。</div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2026年12月</div>
+                        <div class="timeline-title">5店舗展開</div>
+                        <div class="timeline-description">成功モデルを横展開。多様な寺院タイプでの実証を行います。</div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2027年</div>
+                        <div class="timeline-title">フランチャイズ展開</div>
+                        <div class="timeline-description">全国の寺院にプラットフォームを提供。寺院経営の新しいスタンダードを創ります。</div>
+                    </div>
+                    <div class="timeline-marker"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark">
+        <div class="container text-center">
+            <h2 class="section-title">まずは、体験してください</h2>
+            <p style="font-size: 1.2rem; line-height: 2; opacity: 0.9; margin-bottom: var(--spacing-xl); max-width: 800px; margin-left: auto; margin-right: auto;">
+                10月25-26日、盛松寺で開催する無料体験会。<br>
+                私たちの第一歩を、あなたと共に。
+            </p>
+            <a href="terasauna.html#reserve" class="cta-button large">
+                寺無料体験
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Power Of TERA</div>
+                <div class="footer-tagline">寺の力で、人と地域を繋ぐ</div>
+                <nav class="footer-nav">
+                    <a href="index.html">ホーム</a>
+                    <a href="about.html">想い</a>
+                    <a href="terasauna.html">寺サウナ</a>
+                    <a href="contact.html">お問い合わせ</a>
+                </nav>
+                <div class="footer-info">
+                    <p>&copy; 2025 Power Of TERA. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

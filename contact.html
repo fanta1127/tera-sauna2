@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - Power Of TERA</title>
+    <meta name="description" content="Power Of TERAへのお問い合わせはこちら。LINEまたはメールでお気軽にご連絡ください。">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-intro {
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--color-medium-gray);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .contact-item {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 1px solid rgba(182, 154, 74, 0.2);
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            border-color: var(--color-gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .contact-info {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .contact-info h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-ink);
+        }
+
+        .contact-info p {
+            font-size: 0.9rem;
+            color: var(--color-medium-gray);
+            line-height: 1.6;
+        }
+
+        .contact-link {
+            display: block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .contact-link.line {
+            background-color: #00B900;
+            color: white;
+        }
+
+        .contact-link.line:hover {
+            background-color: #009900;
+        }
+
+        .contact-link.email {
+            background-color: var(--color-gold);
+            color: white;
+        }
+
+        .contact-link.email:hover {
+            background-color: #D4AF37;
+        }
+
+        .social-box {
+            background: rgba(182, 154, 74, 0.05);
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 1px solid rgba(182, 154, 74, 0.15);
+            text-align: center;
+        }
+
+        .social-box h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xs);
+            color: var(--color-ink);
+        }
+
+        .social-box p {
+            font-size: 0.9rem;
+            color: var(--color-medium-gray);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .instagram-link {
+            display: inline-block;
+            padding: var(--spacing-sm) var(--spacing-lg);
+            background: white;
+            border: 2px solid #E1306C;
+            border-radius: 6px;
+            color: #E1306C;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .instagram-link:hover {
+            background: #E1306C;
+            color: white;
+        }
+
+        .info-grid {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .info-card {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 8px;
+            border: 1px solid rgba(182, 154, 74, 0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .info-card h4 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-gold);
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-charcoal);
+        }
+
+        @media (max-width: 768px) {
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">Power Of TERA</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">ホーム</a>
+                <a href="about.html">想い</a>
+                <a href="terasauna.html">寺サウナ</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero visible">
+        <div class="zen-circle"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">お問い合わせ</h1>
+            <p class="hero-subtitle">
+                寺サウナ体験会や事業に関するご質問は、<br>
+                お気軽にご連絡ください。
+            </p>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">お問い合わせ方法</h2>
+            
+            <div class="contact-container">
+                <p class="contact-intro">
+                    通常、1〜2営業日以内にご返信いたします。
+                </p>
+
+                <div class="contact-methods">
+                    <div class="contact-item">
+                        <div class="contact-info">
+                            <h3>LINE</h3>
+                            <p>最新情報の配信や、お問い合わせに迅速に対応します</p>
+                        </div>
+                        <a href="https://lin.ee/zfUOxYG" class="contact-link line" target="_blank" rel="noopener noreferrer">
+                            友だち追加
+                        </a>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-info">
+                            <h3>メール</h3>
+                            <p>詳細なお問い合わせや事業提携のご相談はこちら</p>
+                        </div>
+                        <a href="poweroftera@gmail.com" class="contact-link email">
+                            送信する
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-box">
+                    <h3>SNSでも情報発信中</h3>
+                    <p>最新情報やイベントの様子をお届けしています</p>
+                    <a href="https://www.instagram.com/power.of.tera/" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                        Instagramをフォロー
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">よくあるお問い合わせ</h2>
+            <div class="info-grid">
+                <div class="info-card">
+                    <h4>体験会について</h4>
+                    <p>
+                        10/25-26の寺サウナ体験会に関するご質問は、予約フォーム送信後にも個別でご対応いたします。
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4>メディア掲載</h4>
+                    <p>
+                        取材や掲載のご依頼は、メールにてお問い合わせください。事業資料をお送りいたします。
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4>協業・提携</h4>
+                    <p>
+                        寺院関係者の方、事業提携をご検討の方は、メールにて詳細をお送りください。
+                    </p>
+                </div>
+
+                <div class="info-card">
+                    <h4>クラウドファンディング</h4>
+                    <p>
+                        2025年12月開始予定のクラウドファンディング情報は、LINEで先行配信いたします。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark">
+        <div class="container text-center">
+            <h2 class="section-title">まずは体験会へ</h2>
+            <p style="font-size: 1.2rem; line-height: 2; opacity: 0.9; margin-bottom: var(--spacing-xl); max-width: 700px; margin-left: auto; margin-right: auto;">
+                10月25-26日開催の無料体験会で、<br>
+                寺サウナを実際に体感してください。
+            </p>
+            <a href="terasauna.html#reserve" class="cta-button large">
+                体験会の詳細を見る
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Power Of TERA</div>
+                <div class="footer-tagline">寺の力で、人と地域を繋ぐ</div>
+                <nav class="footer-nav">
+                    <a href="index.html">ホーム</a>
+                    <a href="about.html">想い</a>
+                    <a href="terasauna.html">寺サウナ</a>
+                    <a href="contact.html">お問い合わせ</a>
+                </nav>
+                <div class="footer-info">
+                    <p>&copy; 2025 Power Of TERA. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

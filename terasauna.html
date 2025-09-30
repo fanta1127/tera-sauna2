@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寺サウナ - 盛松寺プライベートサウナ体験会 | Power Of TERA</title>
+    <meta name="description" content="10月25-26日限定。300年の歴史を持つ盛松寺で、特別なプライベートサウナ体験を。完全無料のMVP体験会。">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .hero {
+            background: linear-gradient(135deg,
+                    rgba(28, 28, 28, 0.75) 0%,
+                    rgba(28, 28, 28, 0.6) 100%),
+                url('photos/seishoji0.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .event-badge {
+            display: inline-block;
+            padding: var(--spacing-xs) var(--spacing-md);
+            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            border-radius: 20px;
+            margin-bottom: var(--spacing-md);
+            animation: badgePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes badgePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-date {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            font-weight: 500;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-md);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .temple-intro {
+            position: relative;
+        }
+
+        .temple-intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('photos/seishoji1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.08;
+            z-index: 0;
+        }
+
+        .temple-intro>.container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .access-info {
+            background: white;
+            padding: var(--spacing-lg);
+            border-radius: 15px;
+            border: 1px solid rgba(182, 154, 74, 0.2);
+            margin-top: var(--spacing-xl);
+        }
+
+        .access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .access-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-sm);
+        }
+
+        .access-icon {
+            font-size: 1.5rem;
+            color: var(--color-gold);
+        }
+
+        /* スケジュールテーブル */
+        .schedule-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--color-light-gray);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .schedule-row-label {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: var(--spacing-md);
+            background: linear-gradient(135deg, var(--color-gold), #C89A47);
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            letter-spacing: 0.05em;
+            text-align: center;
+            border-bottom: 3px solid #9A7A3A;
+        }
+
+        .schedule-row-label>div {
+            position: relative;
+        }
+
+        .schedule-row-label>div:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 60%;
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .schedule-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            padding: var(--spacing-md);
+            border-bottom: 1px solid var(--color-light-gray);
+            text-align: center;
+            transition: var(--transition);
+            font-size: 0.95rem;
+            color: var(--color-charcoal);
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .schedule-row:hover {
+            background: var(--color-light-gray);
+        }
+
+        /* 詳細カード */
+        .detail-cards {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+        }
+
+        .detail-card {
+            padding: var(--spacing-md);
+            background: white;
+            border-radius: 8px;
+            border: 1px solid rgba(182, 154, 74, 0.2);
+            transition: var(--transition);
+        }
+
+        .detail-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--color-gold);
+            border-bottom: 1px solid rgba(182, 154, 74, 0.2);
+            padding-bottom: var(--spacing-sm);
+        }
+
+        .detail-card-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-charcoal);
+            word-break: keep-all;
+            overflow-wrap: break-word;
+        }
+
+        .detail-card-content p {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .detail-card-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 体験の流れ */
+        .flow-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .flow-step {
+            text-align: center;
+            padding: var(--spacing-md);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            border: 2px solid var(--color-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--spacing-md);
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            color: var(--color-gold);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .step-icon:hover {
+            background-color: var(--color-gold);
+            color: var(--color-paper);
+            transform: scale(1.1);
+        }
+
+        .flow-step h3 {
+            font-family: var(--font-serif);
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .flow-step p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+            color: var(--color-medium-gray);
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: var(--color-light-gray);
+            border-radius: 10px;
+            border-left: 4px solid var(--color-gold);
+        }
+
+        .faq-question {
+            font-family: var(--font-serif);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+            color: var(--color-ink);
+        }
+
+        .faq-answer {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--color-charcoal);
+        }
+
+        /* LINE */
+        .line-section {
+            text-align: center;
+        }
+
+        .line-button {
+            display: inline-block;
+            padding: calc(var(--spacing-sm) * 1.2) var(--spacing-xl);
+            background-color: #00B900;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: var(--transition);
+            margin: var(--spacing-sm);
+        }
+
+        .line-button:hover {
+            background-color: #009900;
+            transform: translateY(-3px);
+        }
+
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .flow-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-row-label {
+                display: none;
+            }
+
+            .schedule-row {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-xs);
+                text-align: left;
+                padding-left: var(--spacing-md);
+            }
+
+            .schedule-row>div::before {
+                content: attr(data-label);
+                font-weight: 600;
+                color: var(--color-gold);
+                margin-right: var(--spacing-sm);
+            }
+
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .temple-intro::before {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="nav-logo">Power Of TERA</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html">ホーム</a>
+                <a href="about.html">想い</a>
+                <a href="terasauna.html">寺サウナ</a>
+                <a href="contact.html">お問い合わせ</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero visible">
+        <div class="hero-content">
+            <div class="event-badge">10/25-26 限定開催</div>
+            <h1 class="hero-title">
+                盛松寺<br>
+                プライベートサウナ体験会
+            </h1>
+            <p class="hero-date">2025年10月25日(土)・26日(日)</p>
+            <p class="hero-subtitle">
+                300年の歴史が息づく聖域で<br>
+                特別なサウナ体験を
+            </p>
+            <div class="hero-buttons">
+                <a href="#details" class="cta-button">詳細を見る</a>
+                <a href="#reserve" class="cta-button secondary">予約する</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="temple-intro bg-light" id="temple">
+        <div class="container">
+            <h2 class="section-title">300年の歴史が息づく聖域</h2>
+            <div style="max-width: 900px; margin: 0 auto;">
+                <p class="text-center mb-lg" style="font-size: 1.1rem; line-height: 2; color: var(--color-charcoal);">
+                    享保7年(1722年)に創建された盛松寺は、<br>
+                    高野山真言宗の準別格本山として300年の歴史を刻んできました。<br>
+                    弘法大師ゆかりの地として、疫病退散のために「柚子みそ」を伝えた故事が残り、<br>
+                    今も毎年12月21日に参拝者へ配布される伝統が受け継がれています。
+                </p>
+
+                <div class="photo-gallery">
+                    <div class="gallery-item">
+                        <img src="photos/seishoji1.jpg" alt="盛松寺 本堂" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="photos/seishoji2.jpg" alt="盛松寺 境内" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="photos/seishoji3.jpg" alt="盛松寺 庭園" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="photos/seishoji4.jpg" alt="盛松寺 外観" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="access-info">
+                    <h3 class="text-center mb-lg" style="font-family: var(--font-serif); font-size: 1.5rem;">アクセス</h3>
+                    <div class="access-grid">
+                        <div class="access-item">
+                            <div>
+                                <h4 style="font-weight: 500; margin-bottom: var(--spacing-xs);">電車でお越しの方</h4>
+                                <p style="font-size: 0.95rem; color: var(--color-medium-gray);">南海高野線「千代田駅」より徒歩10〜13分
+                                </p>
+                            </div>
+                        </div>
+                        <div class="access-item">
+                            <div>
+                                <h4 style="font-weight: 500; margin-bottom: var(--spacing-xs);">お車でお越しの方</h4>
+                                <p style="font-size: 0.95rem; color: var(--color-medium-gray);">駐車場あり（詳細は予約時にご案内）</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--spacing-lg);">
+                        <p class="text-center mb-sm" style="font-weight: 500;">〒586-0004 大阪府河内長野市楠町西1211</p>
+                        <div
+                            style="width: 100%; height: 400px; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3477.733023349748!2d135.55774877594027!3d34.470307973002456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000d6862c2e03e1%3A0x1152f63a0112e8dd!2z55ub5p2-5a-644O755ub5p2-5a-66ZyK6IuR!5e1!3m2!1sja!2sjp!4v1759243694494!5m2!1sja!2sjp"
+                                width="770" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details">
+        <div class="container">
+            <h2 class="section-title">体験会詳細</h2>
+            <p class="text-center mb-xl"
+                style="font-size: 1.1rem; color: var(--color-charcoal); max-width: 800px; margin-left: auto; margin-right: auto;">
+                10月25-26日の2日間、各日午前・午後の部で開催します。<br>
+                各回最大4名様限定のプライベート体験会です。
+            </p>
+
+            <div class="schedule-table" style="max-width: 900px; margin: 0 auto var(--spacing-xl) auto;">
+                <div class="schedule-row-label">
+                    <div>日付</div>
+                    <div>時間帯</div>
+                    <div>定員</div>
+                </div>
+                <div class="schedule-row">
+                    <div data-label="日付: ">10月25日(土)</div>
+                    <div data-label="時間帯: ">午前の部</div>
+                    <div data-label="定員: ">4名</div>
+                </div>
+                <div class="schedule-row">
+                    <div data-label="日付: ">10月25日(土)</div>
+                    <div data-label="時間帯: ">午後の部</div>
+                    <div data-label="定員: ">4名</div>
+                </div>
+                <div class="schedule-row">
+                    <div data-label="日付: ">10月26日(日)</div>
+                    <div data-label="時間帯: ">午前の部</div>
+                    <div data-label="定員: ">4名</div>
+                </div>
+                <div class="schedule-row">
+                    <div data-label="日付: ">10月26日(日)</div>
+                    <div data-label="時間帯: ">午後の部</div>
+                    <div data-label="定員: ">4名</div>
+                </div>
+            </div>
+
+            <div class="detail-cards">
+                <div class="detail-card">
+                    <h3>場所</h3>
+                    <div class="detail-card-content">
+                        <p>盛松寺（大阪府河内長野市）</p>
+                        <p>南海高野線「千代田駅」徒歩10分</p>
+                        <p>駐車場あり</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>持ち物</h3>
+                    <div class="detail-card-content">
+                        <p>バスタオル（必須）</p>
+                        <p>着替え（任意）</p>
+                        <p>飲み物（推奨）</p>
+                    </div>
+                </div>
+
+                <div class="detail-card">
+                    <h3>注意事項</h3>
+                    <div class="detail-card-content">
+                        <p>申込締切：10月19日(日)</p>
+                        <p>雨天決行（荒天時は個別連絡）</p>
+                        <p>完全無料</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <h2 class="section-title">体験の流れ</h2>
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-icon"><span>一</span></div>
+                    <h3>受付</h3>
+                    <p>静寂の境内で心を落ち着け、体験の流れを丁寧にご案内いたします。</p>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-icon"><span>二</span></div>
+                    <h3>サウナ入浴</h3>
+                    <p>プライベートテントサウナで、ただ己と向き合い、汗と共に雑念を流します。</p>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-icon"><span>三</span></div>
+                    <h3>水風呂</h3>
+                    <p>冷たい水が身体を引き締め、心も研ぎ澄まされていくのを感じてください。</p>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-icon"><span>四</span></div>
+                    <h3>外気浴・ととのい</h3>
+                    <p>境内の自然な風に包まれ、究極のととのい体験をお楽しみください。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2 class="section-title">よくある質問</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">Q. 本当に完全無料ですか？</div>
+                    <div class="faq-answer">はい、今回の体験会は完全無料です。MVP検証のため、皆様のご意見をお聞かせいただくことが目的です。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q. サウナ初心者でも大丈夫ですか？</div>
+                    <div class="faq-answer">もちろん大丈夫です。スタッフが丁寧にご案内しますので、初めての方でも安心してご参加ください。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q. 駐車場はありますか？</div>
+                    <div class="faq-answer">はい、駐車場をご用意しております。詳細は予約確定後にご案内いたします。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q. 雨天時はどうなりますか？</div>
+                    <div class="faq-answer">基本的に雨天決行です。ただし、荒天の場合は中止となる可能性があり、その際は事前に個別でご連絡いたします。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">Q. 当日キャンセルは可能ですか？</div>
+                    <div class="faq-answer">やむを得ない事情の場合は、できるだけ早めにご連絡ください。無断キャンセルはご遠慮ください。</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-dark" id="reserve">
+        <div class="container text-center">
+            <h2 class="section-title">体験会に参加する</h2>
+            <p style="font-size: 1.2rem; line-height: 2; opacity: 0.9; margin-bottom: var(--spacing-xl);">
+                プライベートテントサウナ体験（60分）を<br>
+                完全無料でお試しいただけます。
+            </p>
+            <a href="https://docs.google.com/forms/d/1l61046bOGIipIuBS7nPivJJzll576Fx1L9GCmZkQt8w/viewform"
+                target="_blank" class="cta-button large">
+                予約フォームはこちら
+            </a>
+        </div>
+    </section>
+
+    <section class="bg-light">
+        <div class="container">
+            <div class="line-section">
+                <h2 class="section-title">次回開催情報を受け取る</h2>
+                <p
+                    style="font-size: 1.1rem; line-height: 2; color: var(--color-charcoal); margin-bottom: var(--spacing-lg); max-width: 700px; margin-left: auto; margin-right: auto;">
+                    今回の体験会に参加できない方も、<br>
+                    次回開催情報やクラウドファンディング情報を<br>
+                    LINEで最速でお届けします。
+                </p>
+                <a href="https://lin.ee/zfUOxYG" class="line-button" target="_blank" rel="noopener noreferrer">
+                    LINE友だち追加
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">Power Of TERA</div>
+                <div class="footer-tagline">寺の力で、人と地域を繋ぐ</div>
+                <nav class="footer-nav">
+                    <a href="index.html">ホーム</a>
+                    <a href="about.html">想い</a>
+                    <a href="terasauna.html">寺サウナ</a>
+                    <a href="contact.html">お問い合わせ</a>
+                </nav>
+                <div class="footer-info">
+                    <p>&copy; 2025 Power Of TERA. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
